@@ -147,6 +147,7 @@ pairwise_alignment <- function(file_1, file_2, matrix, open_gap, extend_gap, fil
   writePairwiseAlignments(alignment, file=file_name, Matrix = matrix, block.width=60)
 }
 
+## Functions
 mart_finder('mart_list_R.csv') 
 
 database_finder('ENSEMBL_MART_ENSEMBL', 'database_list_R.csv')
