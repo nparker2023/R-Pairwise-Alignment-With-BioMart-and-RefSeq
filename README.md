@@ -1,6 +1,6 @@
 # R Pipeline Tutorial to Query and Manipulate Data from BioMart and RefSeq in Order to Perform a Pairwise Alignment Between Two Species 
 ### Overview
-The following code gives a step by step guide on how to successfully use the pipeline in order to get the desired results. 
+The following tutorial gives a step by step guide on how to successfully use the pipeline in order to get the desired results. 
 ```R
 if (!require("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
