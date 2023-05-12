@@ -6,17 +6,15 @@ The following tutorial gives a step by step guide on how to successfully use the
 
 ## Requirements
 
+Step 1: Install and load all of the necessary packages in order for this pipeline to run successfully.
+
 ```R
 if (!require("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 BiocManager::install(version = "3.17")
-```
-
-```R
 BiocManager::install(c("biomaRt", "Biostrings"))
 install.packages(c('rentrez', 'dplyr', 'readr', 'seqinr', 'stringr'))
 ```
-
 ```R
 library(biomaRt)
 library(Biostrings)
