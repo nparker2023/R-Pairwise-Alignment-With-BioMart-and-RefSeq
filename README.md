@@ -90,6 +90,8 @@ gene_list <- function(species, chrom, species_2_id, species_2_gene_name, file_na
 }
 ```
 
+## Filter Data 
+
 ```R
 gene_list_dataset_1_filter <- function(species, gene_list, species_filter, filter_gene) {
   dataset = read.csv(species)
@@ -137,6 +139,8 @@ dataset_1_final_filter<- function(species, gene_list, file_name) {
 }  
 ```
 
+## Filter Data By Gene Ontology
+
 ```R
 gene_ontology_filter <- function(file, go_term, go_name_filter) {
   filtered_species = read.csv(file)
@@ -144,6 +148,8 @@ gene_ontology_filter <- function(file, go_term, go_name_filter) {
   write.csv(query, go_name_filter, row.names=FALSE)
 }
 ```
+
+## Select Specified RefSeq
 
 ```R
 ref_seq_list <- function(file_name, column_name, gene_name, name) {
@@ -161,6 +167,8 @@ ref_seq_sequence <- function(db_type, id, file_name) {
   write(net_handle, file = file_name)
 }
 ```
+
+## Perform Pariwise Alignment
 
 ```R
 pairwise_alignment <- function(file_1, file_2, matrix, open_gap, extend_gap, file_name) {
