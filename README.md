@@ -31,6 +31,8 @@ setwd("~/R")
 
 ## Selecting Marts
 
+Step 2: Select a mart in order to access the BioMart Ensembl databases. All of the available marts can be accessed as a list and saved to a csv file.
+
 ```R
 mart_finder <- function(file_name_1) {
   list_1 = listMarts(host='https://www.ensembl.org')
@@ -39,6 +41,9 @@ mart_finder <- function(file_name_1) {
 ```
 
 ## BioMart Ensembl Databases 
+
+Step 3: After sellecting a particular mart, use it to access all its corresponding BioMart Ensembl databases. All of the available datasets can be accessed as a list and saved to a csv file.
+
 ```R
 database_finder <- function(mart_name, file_name_2) {
    list_2 = useMart(biomart=mart_name, host='https://www.ensembl.org')
@@ -48,6 +53,8 @@ database_finder <- function(mart_name, file_name_2) {
 ```
 
 ## Filters and Attributes For a Specific BioMart Ensembl Database
+
+Step 4: Find the filters and attributes for a specific database. The filters and attributtes will vary to a degree depending on the dataset selected. All of the available filters and attributes for a particular species dataset can be accessed and saved to csv files.
 
 ```R
 filters_attributes <- function(type, species, file_1, file_2) {
@@ -60,6 +67,8 @@ filters_attributes <- function(type, species, file_1, file_2) {
 ```
 
 ## Gather Data 
+
+Step 5: Query data from a particular dataset based on specific attributes and filters in order to get specific queries. The queries for a particular species dataset can be saved as a csv file.
 
 ```R
 dataset_retrieve <- function(type, species, chrom, file_name) {
@@ -89,6 +98,8 @@ gene_list <- function(species, chrom, species_2_id, species_2_gene_name, file_na
 ```
 
 ## Filter Data 
+
+Step 7: Filter the datasets so that they relflect the genes present on the gene list. These updated datasets can be saved to a csv file.
 
 ```R
 gene_list_dataset_1_filter <- function(species, gene_list, species_filter, filter_gene) {
@@ -139,6 +150,8 @@ dataset_1_final_filter<- function(species, gene_list, file_name) {
 
 ## Filter Data By Gene Ontology
 
+Step 8: Filter species datasets by gene ontology term and save to a csv file.
+
 ```R
 gene_ontology_filter <- function(file, go_term, go_name_filter) {
   filtered_species = read.csv(file)
@@ -148,6 +161,8 @@ gene_ontology_filter <- function(file, go_term, go_name_filter) {
 ```
 
 ## Select Specified RefSeq
+
+Step 9: Filter species datasets to get a gene of interest and save to a csv file.
 
 ```R
 ref_seq_list <- function(file_name, column_name, gene_name, name) {
@@ -159,6 +174,8 @@ ref_seq_list <- function(file_name, column_name, gene_name, name) {
 }
 ```
 
+Step 10: Retrieve the desired RefSeq sequences from NCBI and save it to a fasta file.
+
 ```R
 ref_seq_sequence <- function(db_type, id, file_name) {
   net_handle <- entrez_fetch(db=db_type, id=id, rettype="fasta", retmode='text')
@@ -167,6 +184,8 @@ ref_seq_sequence <- function(db_type, id, file_name) {
 ```
 
 ## Perform Pariwise Alignment
+
+Step 11: Perform pairwise alignment between two different sequences and save the results to a txt file.
 
 ```R
 pairwise_alignment <- function(file_1, file_2, matrix, open_gap, extend_gap, file_name) {
@@ -202,6 +221,8 @@ pairwise_alignment <- function(file_1, file_2, matrix, open_gap, extend_gap, fil
 
 
 ## Function Arguments
+
+Step 12: Call the functions in order to implement the pipeline and get the results that are mentioned above.
 
 ```R
 mart_finder('mart_list_R.csv') 
