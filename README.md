@@ -168,9 +168,9 @@ gene_list_dataset_2_filter <- function(species, gene_list, column_name, file_nam
 ```
 When these functions are called, they should output files similar to the ones shown in the following images. The following images show a database and gene list before and after filtering. Most noticeably, the filtered files have fewer rows than the non-filtered files.
 
-<img src="output_files/dataset_filter_R.png">
+<img src="output_files/dataset_filter_R.png" width="640" height="360">
 
-<img src="output_files/gene_list_filter_R.png">
+<img src="output_files/gene_list_filter_R.png" width="640" height="360">
 
 ```R
 # First species dataset is updated to reflect filtered second species dataset
