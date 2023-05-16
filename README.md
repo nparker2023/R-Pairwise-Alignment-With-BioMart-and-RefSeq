@@ -27,13 +27,14 @@ library(seqinr)
 library(stringr)
 ```
 
+Step 2: Set the directory location for saved and desired files.
 ```R
 setwd("~/R")
 ```
 
 ## Selecting Marts
 
-Step 2: Select a mart in order to access the BioMart Ensembl databases. All of the available marts can be accessed as a list and saved to a csv file.
+Step 3: Select a mart in order to access the BioMart Ensembl databases. All of the available marts can be accessed as a list and saved to a csv file.
 
 ```R
 mart_finder <- function(file_name_1) {
@@ -44,7 +45,7 @@ mart_finder <- function(file_name_1) {
 
 ## BioMart Ensembl Databases 
 
-Step 3: After sellecting a particular mart, use it to access all its corresponding BioMart Ensembl databases. All of the available datasets can be accessed as a list and saved to a csv file.
+Step 4: After sellecting a particular mart, use it to access all its corresponding BioMart Ensembl databases. All of the available datasets can be accessed as a list and saved to a csv file.
 
 ```R
 database_finder <- function(mart_name, file_name_2) {
@@ -56,7 +57,7 @@ database_finder <- function(mart_name, file_name_2) {
 
 ## Filters and Attributes For a Specific BioMart Ensembl Database
 
-Step 4: Find the filters and attributes for a specific database. The filters and attributtes will vary to a degree depending on the dataset selected. All of the available filters and attributes for a particular species dataset can be accessed and saved to csv files.
+Step 5: Find the filters and attributes for a specific database. The filters and attributtes will vary to a degree depending on the dataset selected. All of the available filters and attributes for a particular species dataset can be accessed and saved to csv files.
 
 ```R
 filters_attributes <- function(type, species, file_1, file_2) {
@@ -70,7 +71,7 @@ filters_attributes <- function(type, species, file_1, file_2) {
 
 ## Gather Data 
 
-Step 5: Query data from a particular dataset based on specific attributes and filters in order to get specific queries. The queries for a particular species dataset can be saved as a csv file.
+Step 6: Query data from a particular dataset based on specific attributes and filters in order to get specific queries. The queries for a particular species dataset can be saved as a csv file.
 
 ```R
 dataset_retrieve <- function(type, species, chrom, file_name) {
