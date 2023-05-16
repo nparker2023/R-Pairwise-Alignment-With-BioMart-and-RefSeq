@@ -129,6 +129,10 @@ gene_list_dataset_1_filter <- function(species, gene_list, species_filter, filte
   query_1 = dataset[dataset$external_gene_name %in% list_1_vector, ]
   write.csv(query_1, species_filter, row.names=FALSE)
   
+  When this function is called, it should output a file that looks similar to the one below.
+  
+  Step 8: Find all the homologs for the two species of interest in order to make a gene list.
+  
   list_2 =  query_1 %>% select(external_gene_name)
   list_2_column = unique(list_2)
   list_2_vector = unlist(list_2_column)
@@ -168,7 +172,7 @@ dataset_1_final_filter<- function(species, gene_list, file_name) {
 
 ## Filter Data By Gene Ontology
 
-Step 8: Filter species datasets by gene ontology term and save to a csv file.
+Step 9: Filter species datasets by gene ontology term and save to a csv file.
 
 ```R
 gene_ontology_filter <- function(file, go_term, go_name_filter) {
@@ -180,7 +184,7 @@ gene_ontology_filter <- function(file, go_term, go_name_filter) {
 
 ## Select Specified RefSeq
 
-Step 9: Filter species datasets to get a gene of interest and save to a csv file.
+Step 10: Filter species datasets to get a gene of interest and save to a csv file.
 
 ```R
 ref_seq_list <- function(file_name, column_name, gene_name, name) {
@@ -192,7 +196,7 @@ ref_seq_list <- function(file_name, column_name, gene_name, name) {
 }
 ```
 
-Step 10: Retrieve the desired RefSeq sequences from NCBI and save it to a fasta file.
+Step 11: Retrieve the desired RefSeq sequences from NCBI and save it to a fasta file.
 
 ```R
 ref_seq_sequence <- function(db_type, id, file_name) {
@@ -203,7 +207,7 @@ ref_seq_sequence <- function(db_type, id, file_name) {
 
 ## Perform Pariwise Alignment
 
-Step 11: Perform pairwise alignment between two different sequences and save the results to a txt file.
+Step 12: Perform pairwise alignment between two different sequences and save the results to a txt file.
 
 ```R
 pairwise_alignment <- function(file_1, file_2, matrix, open_gap, extend_gap, file_name) {
@@ -240,7 +244,7 @@ pairwise_alignment <- function(file_1, file_2, matrix, open_gap, extend_gap, fil
 
 ## Function Arguments
 
-Step 12: Call the functions in order to implement the pipeline and get the results that are mentioned above.
+Step 13: Call the functions in order to implement the pipeline and get the results that are mentioned above.
 
 ```R
 mart_finder('mart_list_R.csv') 
