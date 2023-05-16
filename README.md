@@ -2,7 +2,9 @@
 
 ## Overview
 
-The following tutorial gives a step by step guide on how to successfully use the pipeline in order to get the desired results. The R script without the explanations has also been provided and can be found above.
+The following tutorial gives a step by step guide on how to successfully use the pipeline in order to get the desired results. A more in depth and commentated script for this pipeline can be found above as a .R file. In addition to this, the script has also been provided as a .Rmd file, which allows the code to be run in chunks rather than all at once. Since this is a tutorial, the follow code is not resolute , and is capable of being changed or altered in order to include different attributes, filters, or databases.
+
+
 
 ## Requirements
 
