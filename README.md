@@ -44,7 +44,7 @@ mart_finder <- function(file_name_1) {
 ```
 When this function is called, it should output a file that looks similar to the one below.
 
-<img src="output_files/mart_output_R.png"  width="268.5" height="165">
+<img src="output_files/mart_output_R.png">
 
 
 ## BioMart Ensembl Databases 
