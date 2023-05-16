@@ -59,6 +59,11 @@ database_finder <- function(mart_name, file_name_2) {
 }
 ```
 
+When this function is called, it should output a file that looks similar to the one below.
+
+<img src="output_files/dataset_output_R.png">
+
+
 ## Filters and Attributes For a Specific BioMart Ensembl Database
 
 Step 5: Find the filters and attributes for a specific database. The filters and attributtes will vary to a degree depending on the dataset selected. All of the available filters and attributes for a particular species dataset can be accessed and saved to csv files.
