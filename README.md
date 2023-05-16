@@ -103,7 +103,7 @@ dataset_retrieve <- function(type, species, chrom, file_name) {
 ```
 When this function is called, it should output a file that looks similar to the one below.
   
-Step 8: Find all the homologs for the two species of interest in order to make a gene list.
+Step 7: Find all the homologs for the two species of interest in order to make a gene list.
 
 ```R
 gene_list <- function(species, chrom, species_2_id, species_2_gene_name, file_name) {
@@ -120,7 +120,7 @@ gene_list <- function(species, chrom, species_2_id, species_2_gene_name, file_na
 
 ## Filter Data 
 
-Step 7: Filter the datasets so that they relflect the genes present on the gene list. These updated datasets can be saved to a csv file.
+Step 8: Filter the datasets so that they relflect the genes present on the gene list. These updated datasets can be saved to a csv file.
 
 ```R
 gene_list_dataset_1_filter <- function(species, gene_list, species_filter, filter_gene) {
@@ -131,8 +131,6 @@ gene_list_dataset_1_filter <- function(species, gene_list, species_filter, filte
   list_1_vector = unlist(list_1_column)
   query_1 = dataset[dataset$external_gene_name %in% list_1_vector, ]
   write.csv(query_1, species_filter, row.names=FALSE)
- 
-  
   list_2 =  query_1 %>% select(external_gene_name)
   list_2_column = unique(list_2)
   list_2_vector = unlist(list_2_column)
