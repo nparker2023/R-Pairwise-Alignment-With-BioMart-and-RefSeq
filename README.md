@@ -102,6 +102,8 @@ dataset_retrieve <- function(type, species, chrom, file_name) {
 }
 ```
 When this function is called, it should output a file that looks similar to the one below.
+
+<img src="output_files/query_output_R.png">
   
 Step 7: Find all the homologs for the two species of interest in order to make a gene list.
 
