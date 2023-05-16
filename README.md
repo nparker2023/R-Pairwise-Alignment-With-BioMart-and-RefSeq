@@ -166,6 +166,11 @@ gene_list_dataset_2_filter <- function(species, gene_list, column_name, file_nam
   write.csv(query_2, file_name_2, row.names=FALSE)
 }
 ```
+When these functions are called, they should output files similar to the ones shown in the following images. The following images show a database and gene list before and after filtering. Most noticeably, the filtered files have fewer rows than the non-filtered files.
+
+<img src="output_files/dataset_filter_R.png">
+
+<img src="output_files/gene_list_filter_R.png">
 
 ```R
 # First species dataset is updated to reflect filtered second species dataset
@@ -246,9 +251,6 @@ pairwise_alignment <- function(file_1, file_2, matrix, open_gap, extend_gap, fil
                                          gapOpening = open_gap,
                                          gapExtension = extend_gap,
                                          scoreOnly = FALSE)
-    
-    
-    
     writePairwiseAlignments(alignment, file=file_name, Matrix = matrix, block.width=60)
 }
 ```
