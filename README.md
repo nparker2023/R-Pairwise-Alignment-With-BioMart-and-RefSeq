@@ -78,6 +78,12 @@ filters_attributes <- function(type, species, file_1, file_2) {
 }
 ```
 
+When this function is called, it should output attribute and filter files that look similar to the ones below.
+
+<img src="output_files/attributes_output_R.png" width="700.5" height="525">
+
+<img src="output_files/filters_output_R.png" width="700.5" height="525">
+
 ## Gather Data 
 
 Step 6: Query data from a particular dataset based on specific attributes and filters in order to get specific queries. The queries for a particular species dataset can be saved as a csv file.
