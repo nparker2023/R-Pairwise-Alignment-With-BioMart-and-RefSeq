@@ -128,8 +128,11 @@ When this function is called, it should output a file that looks similar to the 
 Step 8: Filter the datasets so that they relflect the genes present on the gene list. These updated datasets can be saved to a csv file.
 
 ```R
+# Queries are filtered out if they don't appear on the gene list for the first species dataset
 gene_list_dataset_1_filter <- function(species, gene_list, species_filter, filter_gene) {
+  # Species_1 dataset selected
   dataset = read.csv(species)
+  # Uses gene list made from gene_list function
   genes = read.csv(gene_list)
   list_1 = genes %>% select(external_gene_name)
   list_1_column = unique(list_1)
@@ -145,8 +148,11 @@ gene_list_dataset_1_filter <- function(species, gene_list, species_filter, filte
 ```
 
 ```R
+# Queries are filtered out if they don't appear on the gene list for the second species dataset
 gene_list_dataset_2_filter <- function(species, gene_list, column_name, file_name_1, file_name_2) {
+  # Species_2 dataset is selected
   dataset = read.csv(species)
+  # Uses gene list made from gene_list_dataset_1_filter function
   genes = read.csv(gene_list)
   list_1 = genes %>% select(column_name)
   list_1_column = unique(list_1)
@@ -162,8 +168,11 @@ gene_list_dataset_2_filter <- function(species, gene_list, column_name, file_nam
 ```
 
 ```R
+# First species dataset is updated to reflect filtered second species dataset
 dataset_1_final_filter<- function(species, gene_list, file_name) {
+  # Use species_1_filter from gene_list_dataset_1_filter function
   dataset = read.csv(species)
+  # Uses filter_gene_final from gene_list_dataset_2_filter function
   genes = read.csv(gene_list)
   list_1 = genes %>% select(external_gene_name)
   list_1_column = unique(list_1)
