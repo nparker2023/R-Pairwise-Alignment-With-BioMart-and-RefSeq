@@ -42,6 +42,10 @@ mart_finder <- function(file_name_1) {
   write.csv(list_1, file_name_1, row.names=FALSE)
 }
 ```
+When this function is called, it should output a file that looks similar to the one below.
+
+<img src="output_files/mart_output_R.png"  width="268.5" height="165">
+
 
 ## BioMart Ensembl Databases 
 
