@@ -27,7 +27,7 @@ library(seqinr)
 library(stringr)
 ```
 
-Step 2: Set the directory location for saved and desired files.
+Step 2: Set the directory location from which saved and read in files will be stored.
 ```R
 setwd("~/R")
 ```
