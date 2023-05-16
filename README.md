@@ -119,6 +119,9 @@ gene_list <- function(species, chrom, species_2_id, species_2_gene_name, file_na
   write.csv(genes_csv, file_name, row.names=FALSE)
 }
 ```
+When this function is called, it should output a file that looks similar to the one below.
+
+<img src="output_files/gene_homolog_output_R.png">
 
 ## Filter Data 
 
