@@ -187,6 +187,8 @@ dataset_1_final_filter<- function(species, gene_list, file_name) {
 }  
 ```
 
+When this function is called, it should output a file similar to the one shown in the following image. The following image show a database before and after filtering. Similar to the previous two functions, the filtered dataset has fewer rows than the non-filtered dataset.
+
 ## Filter Data By Gene Ontology
 
 Step 9: Filter species datasets by gene ontology term and save to a csv file.
