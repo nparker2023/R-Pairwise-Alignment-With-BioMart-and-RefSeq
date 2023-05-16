@@ -61,7 +61,7 @@ database_finder <- function(mart_name, file_name_2) {
 
 When this function is called, it should output a file that looks similar to the one below.
 
-<img src="output_files/dataset_output_R.png" width="467" height="350">
+<img src="output_files/dataset_output_R.png" width="700.5" height="525">
 
 
 ## Filters and Attributes For a Specific BioMart Ensembl Database
