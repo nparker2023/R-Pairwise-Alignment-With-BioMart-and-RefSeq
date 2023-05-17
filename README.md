@@ -2,9 +2,7 @@
 
 ## Overview
 
-The following tutorial gives a step by step guide on how to successfully use the pipeline in order to get the desired results. A more in depth and commentated script for this pipeline can be found above as a .R file. In addition to this, the script has also been provided as a .Rmd file, which allows the code to be run in chunks rather than all at once. Since this is a tutorial, the follow code is not resolute , and is capable of being changed or altered in order to include different attributes, filters, or databases.
-
-
+The following tutorial gives a step-by-step guide on how to successfully use the pipeline in order to get the desired results. A more in-depth and commented script for this pipeline can be found above as a .R file. In addition to this, the script has also been provided as a .Rmd file, which allows the code to be run in chunks rather than all at once. Since this is a tutorial, the following code is not definitive and is capable of being changed or altered in order to include different attributes, filters, or databases.
 
 ## Requirements
 
@@ -27,7 +25,8 @@ library(seqinr)
 library(stringr)
 ```
 
-Step 2: Set the directory location from which saved and read in files will be stored.
+Step 2: Set the directory location from which saved and read-in files will be stored.
+
 ```R
 setwd("~/R")
 ```
@@ -49,7 +48,7 @@ When this function is called, it should output a file that looks similar to the 
 
 ## BioMart Ensembl Databases 
 
-Step 4: After sellecting a particular mart, use it to access all its corresponding BioMart Ensembl databases. All of the available datasets can be accessed as a list and saved to a csv file.
+Step 4: After selecting a particular mart, use it to access all its corresponding BioMart Ensembl databases. All of the available datasets can be accessed as a list and saved to a csv file.
 
 ```R
 database_finder <- function(mart_name, file_name_2) {
@@ -63,10 +62,9 @@ When this function is called, it should output a file that looks similar to the 
 
 <img src="output_file_photos/dataset_output_R.png" width="700.5" height="525">
 
-
 ## Filters and Attributes For a Specific BioMart Ensembl Database
 
-Step 5: Find the filters and attributes for a specific database. The filters and attributtes will vary to a degree depending on the dataset selected. All of the available filters and attributes for a particular species dataset can be accessed and saved to csv files.
+Step 5: Find the filters and attributes for a specific database. The filters and attributes will vary to a degree depending on the dataset selected. All of the available filters and attributes for a particular species dataset can be accessed and saved to csv files.
 
 ```R
 filters_attributes <- function(type, species, file_1, file_2) {
@@ -121,11 +119,13 @@ gene_list <- function(species, chrom, species_2_id, species_2_gene_name, file_na
 ```
 When this function is called, it should output a file that looks similar to the one below.
 
-<img src="output_files/gene_homolog_output_R.png"  width="743.25" height="528">
+<img src="output_file_photos/gene_homolog_output_R.png"  width="743.25" height="528">
 
 ## Filter Data 
 
-Step 8: Filter the datasets so that they relflect the genes present on the gene list. These updated datasets can be saved to a csv file.
+Step 8: Filter the datasets so that they reflect the genes present on the gene list. These updated datasets can be saved to a csv file.
+
+Note: The database images shown for this section are screenshots and don't show all of the information. Their main purpose is to show the successful functionality of the functions in regards to data filtering.
 
 ```R
 # Queries are filtered out if they don't appear on the gene list for the first species dataset
@@ -168,9 +168,9 @@ gene_list_dataset_2_filter <- function(species, gene_list, column_name, file_nam
 ```
 When these functions are called, they should output files similar to the ones shown in the following images. The following images show a database and gene list before and after filtering. Most noticeably, the filtered files have fewer rows than the non-filtered files.
 
-<img src="output_files/dataset_filter_R.png" width="640" height="360">
+<img src="output_file_photos/dataset_filter_R.png" width="640" height="360">
 
-<img src="output_files/gene_list_filter_R.png" width="640" height="360">
+<img src="output_file_photos/gene_list_filter_R.png" width="640" height="360">
 
 ```R
 # First species dataset is updated to reflect filtered second species dataset
@@ -187,7 +187,7 @@ dataset_1_final_filter<- function(species, gene_list, file_name) {
 }  
 ```
 
-When this function is called, it should output a file similar to the one shown in the following image. The following image show a database before and after filtering. Similar to the previous two functions, the filtered dataset has fewer rows than the non-filtered dataset.
+When this function is called, it should output a file similar to the one shown in the following image. The following image shows a database before and after filtering. Similar to the previous two functions, the filtered dataset has fewer rows than the non-filtered dataset.
 
 ## Filter Data By Gene Ontology
 
@@ -215,7 +215,7 @@ ref_seq_list <- function(file_name, column_name, gene_name, name) {
 }
 ```
 
-Step 11: Retrieve the desired RefSeq sequences from NCBI and save it to a fasta file.
+Step 11: Retrieve the desired RefSeq sequences from NCBI and save them to a fasta file.
 
 ```R
 ref_seq_sequence <- function(db_type, id, file_name) {
