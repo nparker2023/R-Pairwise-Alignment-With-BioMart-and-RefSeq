@@ -272,6 +272,7 @@ pairwise_alignment <- function(file_1, file_2, matrix, open_gap, extend_gap, fil
 
 When this function is called, it should output a file that looks similar to the one below.
 
+<img src="output_file_photos/pairwise_alignment_output_R.png" width="600" height="600">
 
 
 ## Function Arguments
