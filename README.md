@@ -202,6 +202,9 @@ gene_ontology_filter <- function(file, go_term, go_name_filter) {
   write.csv(query, go_name_filter, row.names=FALSE)
 }
 ```
+When this function is called, it should output a file that looks similar to the one below.
+
+<img src="output_file_photos/gene_ontology_output_R.png" width="640" height="360">
 
 ## Select Specified RefSeq
 
