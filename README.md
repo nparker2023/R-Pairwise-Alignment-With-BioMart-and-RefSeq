@@ -222,7 +222,7 @@ ref_seq_list <- function(file_name, column_name, gene_name, name) {
 
 When this function is called, it should output a file that looks similar to the one below.
 
-
+<img src="output_file_photos/refseq_list_R.png">
 
 Step 11: Retrieve the desired RefSeq sequences from NCBI and save them to a fasta file.
 
@@ -235,6 +235,7 @@ ref_seq_sequence <- function(db_type, id, file_name) {
 
 When this function is called, it should output a file that looks similar to the one below.
 
+<img src="output_file_photos/refseq_fasta_output_R.png">
 
 ## Perform Pariwise Alignment
 
