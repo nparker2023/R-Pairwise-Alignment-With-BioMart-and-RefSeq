@@ -44,7 +44,7 @@ mart_finder <- function(file_name_1) {
 ```
 When this function is called, it should output a file that looks similar to the one below.
 
-<img src="output_files/mart_output_R.png" width="267.75" height="111.75">
+<img src="output_file_photos/mart_output_R.png" width="267.75" height="111.75">
 
 
 ## BioMart Ensembl Databases 
@@ -61,7 +61,7 @@ database_finder <- function(mart_name, file_name_2) {
 
 When this function is called, it should output a file that looks similar to the one below.
 
-<img src="output_files/dataset_output_R.png" width="700.5" height="525">
+<img src="output_file_photos/dataset_output_R.png" width="700.5" height="525">
 
 
 ## Filters and Attributes For a Specific BioMart Ensembl Database
@@ -80,9 +80,9 @@ filters_attributes <- function(type, species, file_1, file_2) {
 
 When this function is called, it should output attribute and filter files that look similar to the ones below.
 
-<img src="output_files/attributes_output_R.png" width="591" height="532.5">
+<img src="output_file_photos/attributes_output_R.png" width="591" height="532.5">
 
-<img src="output_files/filters_output_R.png" width="694.5" height="527.25">
+<img src="output_file_photos/filters_output_R.png" width="694.5" height="527.25">
 
 ## Gather Data 
 
@@ -103,7 +103,7 @@ dataset_retrieve <- function(type, species, chrom, file_name) {
 ```
 When this function is called, it should output a file that looks similar to the one below.
 
-<img src="output_files/query_output_R.png">
+<img src="output_file_photos/query_output_R.png">
   
 Step 7: Find all the homologs for the two species of interest in order to make a gene list.
 
