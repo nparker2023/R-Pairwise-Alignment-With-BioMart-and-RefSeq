@@ -276,8 +276,9 @@ pairwise_alignment <- function(file_1, file_2, matrix, open_gap, extend_gap, fil
     species_2_space = str_replace_all(species_2_comma," ","")
     
     alignment <- pairwiseAlignment(species_1_space, species_2_space, type="global",
-                                         # Values for open and extended gaps are set
-                                         # Values should be entered as negative integers
+                                         # Substitution matrix is selected
+                                         # BLOSUM62, BLOSUM45, BLOSUM50, BLOSUM80, 
+                                         # BLOSUM100, PAM30, PAM40, PAM70, PAM120, and PAM250
                                          substitutionMatrix = matrix,
                                          # Values for open and extended gaps are set
                                          # Values should be entered as negative integers
