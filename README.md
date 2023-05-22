@@ -235,6 +235,7 @@ When this function is called, it should output a file that looks similar to the 
 Step 11: Retrieve the desired RefSeq sequences from NCBI and save them to a fasta file.
 
 ```R
+# This function is called twice (1 per different species)
 ref_seq_sequence <- function(db_type, id, file_name) {
   net_handle <- entrez_fetch(db=db_type, id=id, rettype="fasta", retmode='text')
   write(net_handle, file = file_name)
