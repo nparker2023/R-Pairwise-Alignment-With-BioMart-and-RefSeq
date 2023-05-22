@@ -113,6 +113,7 @@ Step 7: Find all the homologs for the two species of interest in order to make a
 ```R
 gene_list <- function(species, chrom, species_2_id, species_2_gene_name, file_name) {
   species_dataset = useEnsembl(biomart="ensembl", dataset=species)
+  # Attributes include gene name and ID for species_1, and ID and gene name for corresponding homolog species
   gene_list_query <- getBM(attributes=c('ensembl_gene_id','external_gene_name',
   species_2_id, species_2_gene_name), filters =
   'chromosome_name', values =chrom, mart = species_dataset)
@@ -201,6 +202,7 @@ When this function is called, it should output a file similar to the one shown i
 Step 9: Filter species datasets by gene ontology term and save to a csv file.
 
 ```R
+# This function is called twice (1 per different species)
 gene_ontology_filter <- function(file, go_term, go_name_filter) {
   filtered_species = read.csv(file)
   query = filtered_species[filtered_species$name_1006 == go_term,]
@@ -216,6 +218,7 @@ When this function is called, it should output a file that looks similar to the 
 Step 10: Filter species datasets to get a gene of interest and save to a csv file.
 
 ```R
+# This function is called twice (1 per different species)
 ref_seq_list <- function(file_name, column_name, gene_name, name) {
   file = read.csv(file_name)
   selected = file[, c(column_name, 'external_gene_name')]
@@ -248,14 +251,20 @@ Step 12: Perform pairwise alignment between two different sequences and save the
 
 ```R
 pairwise_alignment <- function(file_1, file_2, matrix, open_gap, extend_gap, file_name) {
+    # Uses selected fatsa file
     species_1 <- read.fasta(file_1)
+    # Species_1 is converted to a vector
     species_1_character <- unlist(species_1)
+    # All values in vector are converted to uppercase
     species_1_upper <- lapply(species_1_character, toupper)
+    # Species_1_upper converted to vector
     species_1_unlist <- unlist(species_1_upper)
+    # Species_1_unlist converted to string
     species_1_string <- toString(species_1_unlist)
+    # Commas in species_1_string removed
     species_1_comma = str_replace_all(species_1_string,",","")
+    # Spaces removed from species_1_comma
     species_1_space = str_replace_all(species_1_comma," ","")
-    
     
     species_2 <- read.fasta(file_2)
     species_2_character <- unlist(species_2)
@@ -265,9 +274,12 @@ pairwise_alignment <- function(file_1, file_2, matrix, open_gap, extend_gap, fil
     species_2_comma = str_replace_all(species_2_string,",","")
     species_2_space = str_replace_all(species_2_comma," ","")
     
-    
     alignment <- pairwiseAlignment(species_1_space, species_2_space, type="global",
+                                         # Values for open and extended gaps are set
+                                         # Values should be entered as negative integers
                                          substitutionMatrix = matrix,
+                                         # Values for open and extended gaps are set
+                                         # Values should be entered as negative integers
                                          gapOpening = open_gap,
                                          gapExtension = extend_gap,
                                          scoreOnly = FALSE)
