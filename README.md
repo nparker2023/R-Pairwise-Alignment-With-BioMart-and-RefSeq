@@ -68,6 +68,8 @@ When this function is called, it should output a file that looks similar to the 
 Step 5: Find the filters and attributes for a specific database. The filters and attributes will vary to a degree depending on the dataset selected. All of the available filters and attributes for a particular species dataset can be accessed and saved to csv files.
 
 ```R
+# Filters and attributes get their own file
+# This function is called twice (1 per different species)
 filters_attributes <- function(type, species, file_1, file_2) {
   species_dataset = useEnsembl(biomart=type, dataset=species)
   list_1 = listFilters(species_dataset)
