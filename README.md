@@ -51,6 +51,7 @@ When this function is called, it should output a file that looks similar to the 
 Step 4: After selecting a particular mart, use it to access all its corresponding BioMart Ensembl databases. All of the available datasets can be accessed as a list and saved to a csv file.
 
 ```R
+# A database represents a species
 database_finder <- function(mart_name, file_name_2) {
    list_2 = useMart(biomart=mart_name, host='https://www.ensembl.org')
    list_2_new = listDatasets(list_2)
