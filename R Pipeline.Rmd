@@ -41,6 +41,7 @@ mart_finder <- function(file_name_1) {
 
 ```{r}
 # Finds all BioMart Ensembl databases based on specified mart
+# A database represents a species
 database_finder <- function(mart_name, file_name_2) {
    list_2 = useMart(biomart=mart_name, host='https://www.ensembl.org')
    # Database list is made and saved to file
