@@ -92,8 +92,10 @@ Step 6: Query data from a particular dataset based on specific attributes and fi
 ```R
 dataset_retrieve <- function(type, species, chrom, file_name) {
   species_dataset = useEnsembl(biomart=type, dataset=species)
+  # Attributes are specified
   species_query <- getBM(attributes=c('refseq_mrna', 'refseq_peptide', 'ensembl_gene_id',     
   'external_gene_name', 'description', 'start_position', 'end_position', 'strand',  
+  # Genes filtered by chromosomal location
   'chromosome_name', 'name_1006'), filters =
   'chromosome_name', values =chrom, mart = species_dataset)
   write.csv(species_query, file_name, row.names=FALSE)
