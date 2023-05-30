@@ -33,7 +33,7 @@ setwd("~/R")
 
 ## Selecting Marts
 
-Step 3: Select a mart in order to access the BioMart Ensembl databases. All of the available marts can be accessed as a list and saved to a csv file.
+Step 3: Select a mart in order to access the Ensembl BioMart databases. All of the available marts can be accessed as a list and saved to a csv file.
 
 ```R
 mart_finder <- function(file_name_1) {
@@ -46,9 +46,9 @@ When this function is called, it should output a file that looks similar to the 
 <img src="output_file_photos/mart_output_R.png" width="267.75" height="111.75">
 
 
-## BioMart Ensembl Databases 
+## Ensembl BioMart Databases 
 
-Step 4: After selecting a particular mart, use it to access all its corresponding BioMart Ensembl databases. All of the available datasets can be accessed as a list and saved to a csv file.
+Step 4: After selecting a particular mart, use it to access all its corresponding Ensembl BioMart databases. All of the available datasets can be accessed as a list and saved to a csv file.
 
 ```R
 # A database represents a species
@@ -63,7 +63,7 @@ When this function is called, it should output a file that looks similar to the 
 
 <img src="output_file_photos/dataset_output_R.png" width="700.5" height="525">
 
-## Filters and Attributes For a Specific BioMart Ensembl Database
+## Filters and Attributes For a Specific Ensembl BioMart Database
 
 Step 5: Find the filters and attributes for a specific database. The filters and attributes will vary to a degree depending on the dataset selected. All of the available filters and attributes for a particular species dataset can be accessed and saved to csv files.
 
