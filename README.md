@@ -65,12 +65,12 @@ When this function is called, it should output a file that looks similar to the 
 
 ## Filters and Attributes For a Specific Ensembl BioMart Database
 
-Step 5: Find the filters and attributes for a specific database. The filters and attributes will vary to a degree depending on the dataset selected. All of the available filters and attributes for a particular species dataset can be accessed and saved to csv files.
+Step 5: Find the filters for a specific database. The filters will vary to a degree depending on the dataset selected. All of the available filters for a particular species dataset can be accessed and saved to csv file.
 
 ```R
 # Filters and attributes get their own file
 # This function is called twice (1 per different species)
-filters_attributes <- function(type, species, file_1, file_2) {
+filters<- function(type, species, file_1) {
   species_dataset = useEnsembl(biomart=type, dataset=species)
   list_1 = listFilters(species_dataset)
   list_2 =listAttributes(species_dataset)
@@ -79,15 +79,33 @@ filters_attributes <- function(type, species, file_1, file_2) {
 }
 ```
 
-When this function is called, it should output attribute and filter files that look similar to the ones below.
-
-<img src="output_file_photos/attributes_output_R.png" width="591" height="532.5">
+When this function is called, it should output a filter file that looks similar to the one below.
 
 <img src="output_file_photos/filters_output_R.png" width="694.5" height="527.25">
 
+Step 6: Find the filters and attributes for a specific database. The filters and attributes will vary to a degree depending on the dataset selected. All of the available filters and attributes for a particular species dataset can be accessed and saved to csv file.
+
+```R
+# Filters and attributes get their own file
+# This function is called twice (1 per different species)
+attributes <- function(type, species, file_1, file_2) {
+  species_dataset = useEnsembl(biomart=type, dataset=species)
+  list_1 = listFilters(species_dataset)
+  list_2 =listAttributes(species_dataset)
+  write.csv(list_1, file_1, row.names=FALSE)
+  write.csv(list_2, file_2, row.names=FALSE)
+}
+```
+
+When this function is called, it should output an attribute file that looks similar to the one below.
+
+<img src="output_file_photos/attributes_output_R.png" width="591" height="532.5">
+
+
+
 ## Gather Data 
 
-Step 6: Query data from a particular dataset based on specific attributes and filters in order to get specific queries. The queries for a particular species dataset can be saved as a csv file.
+Step 7: Query data from a particular dataset based on specific attributes and filters in order to get specific queries. The queries for a particular species dataset can be saved as a csv file.
 
 ```R
 dataset_retrieve <- function(type, species, chrom, file_name) {
@@ -108,7 +126,7 @@ When this function is called, it should output a file that looks similar to the 
 
 <img src="output_file_photos/query_output_R.png">
   
-Step 7: Find all the homologs for the two species of interest in order to make a gene list.
+Step 8: Find all the homologs for the two species of interest in order to make a gene list.
 
 ```R
 gene_list <- function(species, chrom, species_2_id, species_2_gene_name, file_name) {
@@ -129,7 +147,7 @@ When this function is called, it should output a file that looks similar to the 
 
 ## Filter Data 
 
-Step 8: Filter the datasets so that they reflect the genes present on the gene list. These updated datasets can be saved to a csv file.
+Step 9: Filter the datasets so that they reflect the genes present on the gene list. These updated datasets can be saved to a csv file.
 
 Note: The database images shown for this section are screenshots and don't show all of the information. Their main purpose is to show the successful functionality of the functions in regards to data filtering.
 
@@ -199,7 +217,7 @@ When this function is called, it should output a file similar to the one shown i
 
 ## Filter Data By Gene Ontology
 
-Step 9: Filter species datasets by gene ontology term and save to a csv file.
+Step 10: Filter species datasets by gene ontology term and save to a csv file.
 
 ```R
 # This function is called twice (1 per different species)
@@ -215,7 +233,7 @@ When this function is called, it should output a file that looks similar to the 
 
 ## Select Specified RefSeq
 
-Step 10: Filter species datasets to get a gene of interest and save to a csv file.
+Step 11: Filter species datasets to get a gene of interest and save to a csv file.
 
 ```R
 # This function is called twice (1 per different species)
@@ -232,7 +250,7 @@ When this function is called, it should output a file that looks similar to the 
 
 <img src="output_file_photos/refseq_list_R.png" width="252.75" height="348.75">
 
-Step 11: Retrieve the desired RefSeq sequences from NCBI and save them to a fasta file.
+Step 12: Retrieve the desired RefSeq sequences from NCBI and save them to a fasta file.
 
 ```R
 # This function is called twice (1 per different species)
@@ -248,7 +266,7 @@ When this function is called, it should output a file that looks similar to the 
 
 ## Perform Pariwise Alignment
 
-Step 12: Perform pairwise alignment between two different sequences and save the results to a txt file.
+Step 13: Perform pairwise alignment between two different sequences and save the results to a txt file.
 
 ```R
 pairwise_alignment <- function(file_1, file_2, matrix, open_gap, extend_gap, file_name) {
@@ -296,13 +314,15 @@ When this function is called, it should output a file that looks similar to the 
 
 ## Function Arguments
 
-Step 13: Call the functions in order to implement the pipeline and get the results that are mentioned above.
+Step 14: Call the functions in order to implement the pipeline and get the results that are mentioned above.
 
 ```R
 mart_finder('mart_list_R.csv') 
 database_finder('ENSEMBL_MART_ENSEMBL', 'database_list_R.csv')
-filters_attributes('ENSEMBL_MART_ENSEMBL', 'hsapiens_gene_ensembl', 'h_filter_R.csv', 'h_attrib_R.csv')
-filters_attributes('ENSEMBL_MART_ENSEMBL', 'mmusculus_gene_ensembl', 'm_filter_R.csv', 'm_attrib_R.csv')
+filters('ENSEMBL_MART_ENSEMBL', 'hsapiens_gene_ensembl', 'h_filter_R.csv')
+filters('ENSEMBL_MART_ENSEMBL', 'mmusculus_gene_ensembl', 'm_filter_R.csv')
+attributes('ENSEMBL_MART_ENSEMBL', 'hsapiens_gene_ensembl', 'h_attrib_R.csv')
+attributes('ENSEMBL_MART_ENSEMBL', 'mmusculus_gene_ensembl', 'm_attrib_R.csv')
 dataset_retrieve('ENSEMBL_MART_ENSEMBL', 'hsapiens_gene_ensembl', '5', 'species_1_R.csv')
 dataset_retrieve('ENSEMBL_MART_ENSEMBL','mmusculus_gene_ensembl', '18', 'species_2_R.csv')
 gene_list('hsapiens_gene_ensembl', '5', 'mmusculus_homolog_ensembl_gene', 'mmusculus_homolog_associated_gene_name', 'genes_R.csv')
