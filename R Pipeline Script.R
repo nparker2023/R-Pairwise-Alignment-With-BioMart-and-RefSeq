@@ -35,7 +35,7 @@ database_finder <- function(mart_name, file_name_2) {
 
 # Filters and attributes are found for specified species
 # This function is called twice (1 per different species)
-filters <- function(type, species, file_1) {
+dataset_filters <- function(type, species, file_1) {
   species_dataset = useEnsembl(biomart=type, dataset=species)
   # List is made for species filters
   list_1 = listFilters(species_dataset)
@@ -45,7 +45,7 @@ filters <- function(type, species, file_1) {
 
 # Attributes are found for specified species
 # This function is called twice (1 per different species)
-attributes <- function(type, species, file_2) {
+dataset_attributes <- function(type, species, file_2) {
   species_dataset = useEnsembl(biomart=type, dataset=species)
   # List is made for species attributes
   list_2 =listAttributes(species_dataset)
@@ -233,10 +233,10 @@ pairwise_alignment <- function(file_1, file_2, matrix, open_gap, extend_gap, fil
 # Functions are called
 mart_finder('mart_list_R.csv') 
 database_finder('ENSEMBL_MART_ENSEMBL', 'database_list_R.csv')
-filters('ENSEMBL_MART_ENSEMBL', 'mmusculus_gene_ensembl', 'm_filter_R.csv')
-filters('ENSEMBL_MART_ENSEMBL', 'mmusculus_gene_ensembl', 'm_filter_R.csv')
-attributes('ENSEMBL_MART_ENSEMBL', 'hsapiens_gene_ensembl', 'h_attrib_R.csv')
-attributes('ENSEMBL_MART_ENSEMBL', 'mmusculus_gene_ensembl', 'm_attrib_R.csv')
+dataset_filters('ENSEMBL_MART_ENSEMBL', 'mmusculus_gene_ensembl', 'm_filter_R.csv')
+dataset_filters('ENSEMBL_MART_ENSEMBL', 'mmusculus_gene_ensembl', 'm_filter_R.csv')
+dataset_attributes('ENSEMBL_MART_ENSEMBL', 'hsapiens_gene_ensembl', 'h_attrib_R.csv')
+dataset_attributes('ENSEMBL_MART_ENSEMBL', 'mmusculus_gene_ensembl', 'm_attrib_R.csv')
 dataset_retrieve('ENSEMBL_MART_ENSEMBL', 'hsapiens_gene_ensembl', '5', 'species_1_R.csv')
 dataset_retrieve('ENSEMBL_MART_ENSEMBL','mmusculus_gene_ensembl', '18', 'species_2_R.csv')
 gene_list('hsapiens_gene_ensembl', '5', 'mmusculus_homolog_ensembl_gene', 'mmusculus_homolog_associated_gene_name', 'genes_R.csv')
