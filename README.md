@@ -73,9 +73,7 @@ Step 5: Find the filters for a specific database. The filters will vary to a deg
 filters<- function(type, species, file_1) {
   species_dataset = useEnsembl(biomart=type, dataset=species)
   list_1 = listFilters(species_dataset)
-  list_2 =listAttributes(species_dataset)
   write.csv(list_1, file_1, row.names=FALSE)
-  write.csv(list_2, file_2, row.names=FALSE)
 }
 ```
 
@@ -90,9 +88,7 @@ Step 6: Find the filters and attributes for a specific database. The filters and
 # This function is called twice (1 per different species)
 attributes <- function(type, species, file_1, file_2) {
   species_dataset = useEnsembl(biomart=type, dataset=species)
-  list_1 = listFilters(species_dataset)
   list_2 =listAttributes(species_dataset)
-  write.csv(list_1, file_1, row.names=FALSE)
   write.csv(list_2, file_2, row.names=FALSE)
 }
 ```
