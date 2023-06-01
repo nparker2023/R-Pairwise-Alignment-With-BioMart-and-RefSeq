@@ -53,7 +53,7 @@ database_finder <- function(mart_name, file_name_2) {
 ```{r}
 # Filters and attributes are found for specified species
 # This function is called twice (1 per different species)
-filters <- function(type, species, file_1) {
+dataset_filters <- function(type, species, file_1) {
   species_dataset = useEnsembl(biomart=type, dataset=species)
   # List is made for species filters
   list_1 = listFilters(species_dataset)
@@ -65,7 +65,7 @@ filters <- function(type, species, file_1) {
 ```{r}
 # Attributes are found for specified species
 # This function is called twice (1 per different species)
-attributes <- function(type, species, file_2) {
+dataset_attributes <- function(type, species, file_2) {
   species_dataset = useEnsembl(biomart=type, dataset=species)
   # List is made for species attributes
   list_2 =listAttributes(species_dataset)
@@ -280,19 +280,19 @@ database_finder('ENSEMBL_MART_ENSEMBL', 'database_list_R.csv')
 ```
 
 ```{r, warning=FALSE}
-filters('ENSEMBL_MART_ENSEMBL', 'hsapiens_gene_ensembl', 'h_filter_R.csv')
+dataset_filters('ENSEMBL_MART_ENSEMBL', 'hsapiens_gene_ensembl', 'h_filter_R.csv')
 ```
 
 ```{r, warning=FALSE}
-filters('ENSEMBL_MART_ENSEMBL', 'mmusculus_gene_ensembl', 'm_filter_R.csv')
+dataset_filters('ENSEMBL_MART_ENSEMBL', 'mmusculus_gene_ensembl', 'm_filter_R.csv')
 ```
 
 ```{r, warning=FALSE}
-attributes('ENSEMBL_MART_ENSEMBL', 'hsapiens_gene_ensembl', 'h_attrib_R.csv')
+dataset_attributes('ENSEMBL_MART_ENSEMBL', 'hsapiens_gene_ensembl', 'h_attrib_R.csv')
 ```
 
 ```{r, warning=FALSE}
-attributes('ENSEMBL_MART_ENSEMBL', 'mmusculus_gene_ensembl', 'm_attrib_R.csv')
+dataset_attributes('ENSEMBL_MART_ENSEMBL', 'mmusculus_gene_ensembl', 'm_attrib_R.csv')
 ```
 
 ```{r, warning=FALSE}
