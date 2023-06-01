@@ -70,7 +70,7 @@ Step 5: Find the filters for a specific database. The filters will vary to a deg
 ```R
 # Filters and attributes get their own file
 # This function is called twice (1 per different species)
-filters<- function(type, species, file_1) {
+dataset_filters<- function(type, species, file_1) {
   species_dataset = useEnsembl(biomart=type, dataset=species)
   list_1 = listFilters(species_dataset)
   write.csv(list_1, file_1, row.names=FALSE)
@@ -86,7 +86,7 @@ Step 6: Find the filters and attributes for a specific database. The filters and
 ```R
 # Filters and attributes get their own file
 # This function is called twice (1 per different species)
-attributes <- function(type, species, file_1, file_2) {
+dataset_attributes <- function(type, species, file_1, file_2) {
   species_dataset = useEnsembl(biomart=type, dataset=species)
   list_2 =listAttributes(species_dataset)
   write.csv(list_2, file_2, row.names=FALSE)
@@ -315,10 +315,10 @@ Step 14: Call the functions in order to implement the pipeline and get the resul
 ```R
 mart_finder('mart_list_R.csv') 
 database_finder('ENSEMBL_MART_ENSEMBL', 'database_list_R.csv')
-filters('ENSEMBL_MART_ENSEMBL', 'hsapiens_gene_ensembl', 'h_filter_R.csv')
-filters('ENSEMBL_MART_ENSEMBL', 'mmusculus_gene_ensembl', 'm_filter_R.csv')
-attributes('ENSEMBL_MART_ENSEMBL', 'hsapiens_gene_ensembl', 'h_attrib_R.csv')
-attributes('ENSEMBL_MART_ENSEMBL', 'mmusculus_gene_ensembl', 'm_attrib_R.csv')
+dataset_filters('ENSEMBL_MART_ENSEMBL', 'hsapiens_gene_ensembl', 'h_filter_R.csv')
+dataset_filters('ENSEMBL_MART_ENSEMBL', 'mmusculus_gene_ensembl', 'm_filter_R.csv')
+dataset_attributes('ENSEMBL_MART_ENSEMBL', 'hsapiens_gene_ensembl', 'h_attrib_R.csv')
+dataset_attributes('ENSEMBL_MART_ENSEMBL', 'mmusculus_gene_ensembl', 'm_attrib_R.csv')
 dataset_retrieve('ENSEMBL_MART_ENSEMBL', 'hsapiens_gene_ensembl', '5', 'species_1_R.csv')
 dataset_retrieve('ENSEMBL_MART_ENSEMBL','mmusculus_gene_ensembl', '18', 'species_2_R.csv')
 gene_list('hsapiens_gene_ensembl', '5', 'mmusculus_homolog_ensembl_gene', 'mmusculus_homolog_associated_gene_name', 'genes_R.csv')
