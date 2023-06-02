@@ -141,7 +141,7 @@ When this function is called, it should output a file that looks similar to the 
 
 ## Filter Data 
 
-Step 9: Filter all of the datasets and gene lists so that they are reflective of one another. These updated datasets can be saved to a csv file.
+Step 9: Filter all of the datasets and gene lists so that they are reflective of one another. These updated datasets and gene lists can be saved as csv files.
 
 Note: The database images shown for this section are screenshots and don't show all of the information. Their main purpose is to show the successful functionality of the functions in regards to data filtering.
 
