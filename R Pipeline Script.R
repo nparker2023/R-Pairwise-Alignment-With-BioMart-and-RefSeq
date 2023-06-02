@@ -33,7 +33,7 @@ database_finder <- function(mart_name, file_name_2) {
   write.csv(list_2_new, file_name_2, row.names=FALSE)
 }
 
-# Filters and attributes are found for specified species
+# Filters are found for specified species
 # This function is called twice (1 per different species)
 dataset_filters <- function(type, species, file_1) {
   species_dataset = useEnsembl(biomart=type, dataset=species)
