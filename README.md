@@ -146,6 +146,7 @@ Step 9: Filter all of the datasets and gene lists so that they are reflective of
 Note: The dataset and gene list images shown in this section are screenshots and don't show all of the information. Their main purpose is to show the successful functionality of the functions with regards to data filtering.
 
 ```R
+# Step 9A
 # Queries are filtered out if they don't appear on the gene list for the first species dataset
 gene_list_dataset_1_filter <- function(species, gene_list, species_filter, filter_gene) {
   # Species_1 dataset selected
@@ -166,6 +167,7 @@ gene_list_dataset_1_filter <- function(species, gene_list, species_filter, filte
 ```
 
 ```R
+# Step 9B
 # Queries are filtered out if they don't appear on the gene list for the second species dataset
 gene_list_dataset_2_filter <- function(species, gene_list, column_name, file_name_1, file_name_2) {
   # Species_2 dataset is selected
@@ -191,6 +193,7 @@ When these functions are called, they should output files similar to the ones sh
 <img src="output_file_photos/gene_list_filter_R.png" width="640" height="360">
 
 ```R
+# Step 9C
 # First species dataset is updated to reflect filtered second species dataset
 dataset_1_final_filter<- function(species, gene_list, file_name) {
   # Use species_1_filter from gene_list_dataset_1_filter function
