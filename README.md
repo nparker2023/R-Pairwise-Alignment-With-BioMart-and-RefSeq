@@ -68,7 +68,6 @@ When this function is called, it should output a file that looks similar to the 
 Step 5: Find the filters for a specific database. The filters will vary to a degree depending on the dataset selected. All of the available filters for a particular species dataset can be accessed and saved to csv file.
 
 ```R
-# Filters are found for specified species
 # This function is called twice (1 per different species)
 dataset_filters<- function(type, species, file_1) {
   species_dataset = useEnsembl(biomart=type, dataset=species)
@@ -84,7 +83,6 @@ When this function is called, it should output a filter file that looks similar 
 Step 6: Find the filters and attributes for a specific database. The filters and attributes will vary to a degree depending on the dataset selected. All of the available filters and attributes for a particular species dataset can be accessed and saved to csv file.
 
 ```R
-# Attributes are found for specified species
 # This function is called twice (1 per different species)
 dataset_attributes <- function(type, species, file_1, file_2) {
   species_dataset = useEnsembl(biomart=type, dataset=species)
