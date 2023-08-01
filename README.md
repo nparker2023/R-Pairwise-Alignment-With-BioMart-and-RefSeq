@@ -102,6 +102,8 @@ When this function is called, it should output an attribute file that looks simi
 Step 7: Query data from a particular dataset based on specific attributes and filters in order to get specific queries. The queries for a particular species dataset can be saved as a csv file.
 
 ```R
+# In order to work with the data later on, all blanks must be removed and column names must be written in a way that makes them easy to manipulate.
+# This function is called twice (1 per different species)
 dataset_retrieve <- function(type, species, chrom, file_name) {
   species_dataset = useEnsembl(biomart=type, dataset=species)
   # Attributes are specified
