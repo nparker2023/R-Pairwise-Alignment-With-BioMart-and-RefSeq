@@ -1,4 +1,4 @@
-# R Pipeline Tutorial to Query and Manipulate Data from BioMart and RefSeq in Order to Perform a Pairwise Alignment Between Two Species 
+# R pipeline tutorial to query and manipulate data from BioMart and RefSeq in order to retrieve and align protein sequences from two different species
 
 ## Overview
 
